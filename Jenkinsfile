@@ -24,8 +24,7 @@ pipeline {
                       chown $USER:$USER -R /var/lib/jenkins/.conda
                       conda create --yes -n ${BUILD_TAG} python
                       source activate ${BUILD_TAG}
-                      pip install -r requirements.txt
-                      python setup.py sloccount
+                      pip install -r requirements.txt                      
                     '''
             }
         }
