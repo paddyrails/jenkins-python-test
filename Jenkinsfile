@@ -53,8 +53,8 @@ pipeline {
                         python -m coverage xml -o reports/coverage.xml
                     '''
                 echo "Style check"
-                sh  ''' source activate ${BUILD_TAG}
-                        pylint irisvmpy || true
+                sh  ''' #source activate ${BUILD_TAG}
+                        #pylint irisvmpy || true
                     '''
             }
             post{
