@@ -6,7 +6,6 @@
 pylint==1.8.1
 Radon==2.1.1
 coverage==4.4.2
-sloccount==2.26.0
 
 # Testing
 pytest==3.5.1
