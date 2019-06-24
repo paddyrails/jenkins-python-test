@@ -20,8 +20,8 @@ pipeline {
         }
         stage('Build environment') {
             steps {
-                sh '''                      
-                      sudo chown 1021:1021 -R /var/lib/jenkins
+                sh '''mkdir /var/lib/jenkins/.conda                      
+                      sudo chown $USER:$USER -R /var/lib/jenkins/.conda
                       conda create --yes -n ${BUILD_TAG} python
                       source activate ${BUILD_TAG}
                       pip install -r requirements.txt
