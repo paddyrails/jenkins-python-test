@@ -20,8 +20,7 @@ pipeline {
         }
         stage('Build environment') {
             steps {
-                sh '''
-                      whoami                      
+                sh '''                      
                       sudo chown 1021:1021 -R /var/lib/jenkins
                       conda create --yes -n ${BUILD_TAG} python
                       source activate ${BUILD_TAG}
