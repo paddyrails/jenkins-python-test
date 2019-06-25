@@ -89,24 +89,23 @@ pipeline {
             }
         }
 
-        stage('Build package') {
-            when {
-                expression {
-                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
-                }
-            }
+        stage('Acceptance tests') {
             steps {
                 sh  ''' source activate ${BUILD_TAG}
-                        python setup.py bdist_wheel
+                        behave -f=formatters.cucumber_json:PrettyCucumberJSONFormatter -o ./reports/acceptance.json || true
                     '''
             }
             post {
                 always {
-                    // Archive unit tests for the future
-                    archiveArtifacts allowEmptyArchive: true, artifacts: 'dist/*whl', fingerprint: true
+                    cucumber (buildStatus: 'SUCCESS',
+                    fileIncludePattern: '**/*.json',
+                    jsonReportDirectory: './reports/',
+                    parallelTesting: true,
+                    sortingMethod: 'ALPHABETICAL')
                 }
             }
         }
+
         
         stage('Build package') {
             when {
