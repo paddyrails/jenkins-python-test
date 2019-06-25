@@ -3,5 +3,5 @@ Click==6.7
 
 # Data science tools
 numpy==1.15.1
-scipy==1.0.1
+scipy==1.2.2
 scikit-learn==0.19.1
