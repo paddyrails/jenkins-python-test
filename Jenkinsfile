@@ -89,6 +89,24 @@ pipeline {
             }
         }
 
+        stage('Build package') {
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
+            steps {
+                sh  ''' source activate ${BUILD_TAG}
+                        python setup.py bdist_wheel
+                    '''
+            }
+            post {
+                always {
+                    // Archive unit tests for the future
+                    archiveArtifacts allowEmptyArchive: true, artifacts: 'dist/*whl', fingerprint: true
+                }
+            }
+        }
         
         stage('Build package') {
             when {
