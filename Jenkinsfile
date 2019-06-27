@@ -89,7 +89,7 @@ pipeline {
             }
         }
 
-        stage('Acceptance tests') {
+        /*stage('Acceptance tests') {
             steps {
                 sh  ''' source activate ${BUILD_TAG}
                         behave -f=formatters.cucumber_json:PrettyCucumberJSONFormatter -o ./reports/acceptance.json || true
@@ -98,13 +98,13 @@ pipeline {
             post {
                 always {
                     cucumber (buildStatus: 'SUCCESS',
-                    fileIncludePattern: '**/*.json',
+                    fileIncludePattern: '**/   /* #  *.json',
                     jsonReportDirectory: './reports/',
                     parallelTesting: true,
                     sortingMethod: 'ALPHABETICAL')
                 }
             }
-        }
+        }*/
 
         
         stage('Build package') {
