@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'paddypillai/jenkins-python-slave9:latest'}
+    agent { docker 'paddypillai/jenkins-python-slave9.1:latest'}
     options {
         skipDefaultCheckout(true)
         // Keep the 10 most recent builds
