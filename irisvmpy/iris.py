@@ -22,6 +22,8 @@ svc = svm.SVC(kernel='rbf', C=1, gamma=0.7).fit(X, y)
 
 dimm_names = ['Petal Length', 'Petal Width', 'Sepal Length', 'Sepal Width']
 
+def test(dimensions):
+    click.echo("Here I am not doing anything")
 
 @click.command()
 @click.argument('dimensions', nargs=4, type=float)
