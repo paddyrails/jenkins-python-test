@@ -24,6 +24,7 @@ dimm_names = ['Petal Length', 'Petal Width', 'Sepal Length', 'Sepal Width']
 
 def test(dimensions):
     click.echo("Here I am not doing anything")
+    click.echo("This will not be executed and hence not in coverage")
 
 @click.command()
 @click.argument('dimensions', nargs=4, type=float)
