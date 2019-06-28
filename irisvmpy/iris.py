@@ -22,6 +22,7 @@ svc = svm.SVC(kernel='rbf', C=1, gamma=0.7).fit(X, y)
 
 dimm_names = ['Petal Length', 'Petal Width', 'Sepal Length', 'Sepal Width']
 
+@click.command()
 def test(dimensions):
     click.echo("Here I am not doing anything")
     click.echo("This will not be executed and hence not in coverage")
