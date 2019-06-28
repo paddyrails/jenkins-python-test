@@ -14,5 +14,5 @@ class TestCLI(object):
         assert result.exit_code == 0
      
     def test_print_help_fails(self, runner):
-        result = runner.invoke(iris.cli, ['--help'])
-        assert result.exit_code == 1
+        result = runner.invoke(iris.test, ['--help'])
+        assert result.exit_code == 0
