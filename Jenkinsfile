@@ -94,7 +94,7 @@ pipeline {
                 sh  ''' source activate ${BUILD_TAG}
                         #behave -f=formatters.cucumber_json:PrettyCucumberJSONFormatter -o ./reports/acceptance.json || true
                         behave -f json.pretty -o ./reports/acceptance.json || true
-                        python -m behave2cucumber ./reports/acceptance.json
+                        python -m behave2cucumber -i ./reports/acceptance.json
                     '''
             }
             post {
