@@ -42,7 +42,7 @@ def cli(dimensions):
     results = zip(dimm_names, dimensions)
     click.echo("Input data:")
     for i, j in results:
-        click.echo("{} -> {}".format(i, j))
+        click.echo("{:12} -> {}".format(i, j))
 
     click.echo()
     click.echo("Your flower seems to be fine example of:")
