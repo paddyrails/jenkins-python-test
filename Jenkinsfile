@@ -60,7 +60,7 @@ pipeline {
             }
             post{
                 always{
-                    step([$class: 'CoberturaPublisher',
+                    /*step([$class: 'CoberturaPublisher',
                                    autoUpdateHealth: false,
                                    autoUpdateStability: false,
                                    coberturaReportFile: 'reports/coverage.xml',
@@ -70,7 +70,7 @@ pipeline {
                                    maxNumberOfBuilds: 10,
                                    onlyStable: false,
                                    sourceEncoding: 'ASCII',
-                                   zoomCoverageChart: false])
+                                   zoomCoverageChart: false])*/
                 }
             }
         }
@@ -93,17 +93,17 @@ pipeline {
             steps {
                 sh  ''' source activate ${BUILD_TAG}
                         #behave -f=formatters.cucumber_json:PrettyCucumberJSONFormatter -o ./reports/acceptance.json || true
-                        behave -f json.pretty -o ./reports/acceptance.json || true
-                        python -m behave2cucumber -i ./reports/acceptance.json
+                        #behave -f json.pretty -o ./reports/acceptance.json || true
+                        #python -m behave2cucumber -i ./reports/acceptance.json
                     '''
             }
             post {
                 always {
-                    cucumber (buildStatus: 'SUCCESS',
-                    fileIncludePattern: '**/*.json',
+                 /*   cucumber (buildStatus: 'SUCCESS',
+                    fileIncludePattern: '**/ /* *.json',
                     jsonReportDirectory: './reports/',
                     //parallelTesting: true,
-                    sortingMethod: 'ALPHABETICAL')
+                    sortingMethod: 'ALPHABETICAL') */
                 }
             }
         }
