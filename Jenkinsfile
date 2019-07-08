@@ -117,7 +117,7 @@ pipeline {
             }
             steps {
                 sh  ''' source activate ${BUILD_TAG}
-                        python setup.py bdist_wheel upload -r local
+                        python setup.py bdist_wheel 
                     '''
             }
             post {
@@ -128,12 +128,12 @@ pipeline {
             }
         }
 
-        // stage("Deploy to PyPI") {
-        //     steps {
-        //         sh """twine upload dist/*
-        //         """
-        //     }
-        // }    
+         stage("Deploy to PyPI") {
+             steps {
+               sh """twine upload dist/*
+                """
+            }
+         }    
         
         
         
