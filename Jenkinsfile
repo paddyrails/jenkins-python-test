@@ -58,9 +58,9 @@ pipeline {
                         pylint irisvmpy || true
                     '''
             }
-            post{
+             /*post{
                 always{
-                    /*step([$class: 'CoberturaPublisher',
+                   step([$class: 'CoberturaPublisher',
                                    autoUpdateHealth: false,
                                    autoUpdateStability: false,
                                    coberturaReportFile: 'reports/coverage.xml',
@@ -70,9 +70,9 @@ pipeline {
                                    maxNumberOfBuilds: 10,
                                    onlyStable: false,
                                    sourceEncoding: 'ASCII',
-                                   zoomCoverageChart: false])*/
+                                   zoomCoverageChart: false])
                 }
-            }
+            }*/
         }
         
         stage('Unit tests') {
@@ -97,15 +97,15 @@ pipeline {
                         #python -m behave2cucumber -i ./reports/acceptance.json
                     '''
             }
-            post {
+            /*post {
                 always {
-                 /*   cucumber (buildStatus: 'SUCCESS',
+                    cucumber (buildStatus: 'SUCCESS',
                     fileIncludePattern: '**/ /* *.json',
                     jsonReportDirectory: './reports/',
                     //parallelTesting: true,
-                    sortingMethod: 'ALPHABETICAL') */
+                    sortingMethod: 'ALPHABETICAL') 
                 }
-            }
+            }*/
         }
 
         
