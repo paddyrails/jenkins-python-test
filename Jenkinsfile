@@ -118,7 +118,7 @@ pipeline {
             steps {
                 sh  ''' source activate ${BUILD_TAG}
                         python setup.py bdist_wheel 
-                        twine upload --repository local dist/*
+                        twine upload --repository-url http://artifactory:8081/artifactory/api/pypi/pypi-repo -u admin -p password dist/*
                     '''
             }
             post {
